@@ -1,0 +1,5 @@
+.vs/
+EzioHook/Release/
+Release/*.exp
+Release/*.pdb
+Release/*.lib
