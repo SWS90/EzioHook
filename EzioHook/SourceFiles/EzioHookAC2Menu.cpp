@@ -5,6 +5,7 @@
 #include <EzioHookMenus.h>
 #include <SharedBools.h>
 #include <Console.h>
+#include <algorithm>
 float EHWindowAlpha = 0.725f;
 bool ForceHQLODS = false;
 bool ForceHQLODSActive = false;
@@ -113,6 +114,7 @@ void EzioHookAC2Menu()
             else if (ShadowResItemOptions == 5) // Custom
             {
                 ImGui::SliderInt("Custom Shadow Resolution", &ShadowResValue, 1, 4096);
+                ShadowResValue = std::clamp(ShadowResValue, 1, 4096);
                 WRITE_MEMORY(0x021D0278, int, ShadowResValue); // Shadow Res 1
                 WRITE_MEMORY(0x02243CF0, int, ShadowResValue); // Shadow Res 2
                 WRITE_MEMORY(0x022441D0, int, ShadowResValue); // Shadow Res 3
