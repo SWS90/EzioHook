@@ -1,5 +1,7 @@
 .vs/
 EzioHook/Release/
+EzioHook/Debug/
 Release/*.exp
 Release/*.pdb
 Release/*.lib
+Debug/

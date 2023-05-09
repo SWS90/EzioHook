@@ -272,14 +272,19 @@
     <IncludePath>$(ProjectDir)\Headers;$(ProjectDir)\Include\minhook\include;$(ProjectDir)\Include\Detours\Include;$(ProjectDir)\Include\ImGui;$(ProjectDir)\Include\Microsoft DirectX SDK\Include;$(IncludePath)</IncludePath>
     <TargetName>dinput8</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>dinput8</TargetName>
+    <IncludePath>$(ProjectDir)\Headers;$(ProjectDir)\Include\minhook\include;$(ProjectDir)\Include\Detours\Include;$(ProjectDir)\Include\ImGui;$(ProjectDir)\Include\Microsoft DirectX SDK\Include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;EZIOHOOK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
