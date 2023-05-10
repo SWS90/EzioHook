@@ -6,6 +6,7 @@
 #include <SharedBools.h>
 #include <Console.h>
 #include <algorithm>
+#include <GetPointer.h>
 float EHWindowAlpha = 0.725f;
 bool ForceHQLODS = false;
 bool ForceHQLODSActive = false;
@@ -122,7 +123,30 @@ void EzioHookAC2Menu()
             ImGui::EndChild();
             ImGui::EndTabItem();
         }
-
+        if (ImGui::BeginTabItem("Camera"))
+        {
+            ImGui::SetWindowSize(ImVec2(400, 105));
+            ImGui::BeginChild("EH_CameraChild");
+            size_t CamFOVBaseAddr = 0x02210B84;
+            size_t CamFOVOffsets[] = { 0x20, 0x00, 0x30 };
+            size_t CamFOVResult = GetPointer(CamFOVBaseAddr, CamFOVOffsets, _countof(CamFOVOffsets));
+            if (CamFOVResult == 0)
+            {
+                ImGui::Text("Cannot currently read CameraFOV value.");
+            }
+            if (CamFOVResult != 0)
+            {
+                ImGui::SliderFloat("Camera FOV", (float*)CamFOVResult, 0.001f, 3.14f);
+                *((float*)CamFOVResult) = std::clamp(*(float*)CamFOVResult, 0.001f, 3.14f);
+                if (ImGui::Button("Restore default FOV"))
+                {
+                    *((float*)CamFOVResult) = 0.8072147965f;
+                }
+            }
+            ImGui::EndChild();
+            ImGui::EndTabItem();
+        }
+        
         if (ImGui::BeginTabItem("EzioHook Credits"))
         {
             EzioHookCredits();
