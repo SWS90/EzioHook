@@ -8,11 +8,12 @@ EzioHook was made using:
 [Furkankadirguzeloglus DX9 DearImgui base](https://github.com/furkankadirguzeloglu/ImGuiHook-DirectX9)    
 EzioHooks Credits Menu was made using code from [SSSiyans BayoHook](https://github.com/SSSiyan/BayoHook)    
 
-Additonal code usage and references:  
+Additional code usage and references:  
 [Skyths DllMods MemoryHelpers](https://github.com/blueskythlikesclouds/DllMods/blob/3407e53ea9c0cd8dac513d8dab07a283cc932a88/Dependencies/Helpers.h")  
 [Praydogs REFramework](https://github.com/praydog/REFramework) (Dinput8Create code)   
 [CasualCoder91s DirectInput Hook](https://github.com/CasualCoder91/DirectInputYT) (MinHookHooks hookGetDeviceState function)  
 [user-grinchs ImGuiRedux](https://github.com/user-grinch/ImGuiRedux) (MinHookHooks GetDinputDevice bool and MinHook hooking code)  
+[Sajid](https://github.com/Sajidur78) for [GetPointer](https://github.com/thesupersonic16/HedgeModManager/blob/rewrite/HedgeModManager/Resources/MemoryService.cs#L58) code   
 
 EzioHooks current features are:  
 Assassins Creed 2:  

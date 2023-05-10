@@ -58,19 +58,20 @@ void EzioHookCredits()
     }
     ImGui::Separator();
     ImGui::Text("EzioHook was made using:");
-    static std::array<ImGuiURL, 4> links3
+    static std::array<ImGuiURL, 5> links3
     {
         ImGuiURL { "Ocornut's Dear ImGui", "https://github.com/ocornut/imgui" },
         ImGuiURL { "TsudaKageyu's MinHook", "https://github.com/TsudaKageyu/minhook" },
         ImGuiURL { "Furkankadirguzeloglu's DX9 DearImgui base", "https://github.com/furkankadirguzeloglu/ImGuiHook-DirectX9" },
         ImGuiURL { "This Credits Menu was made using code from SSSiyan's BayoHook", "https://github.com/SSSiyan/BayoHook" },
+        ImGuiURL { "GetPointer code from Sajid", "https://github.com/thesupersonic16/HedgeModManager/blob/rewrite/HedgeModManager/Resources/MemoryService.cs#L58" }
     };
     for (auto& link : links3)
     {
         link.draw();
     }
     ImGui::Separator();
-    ImGui::Text("Additonal code references:");
+    ImGui::Text("Additional code references:");
     static std::array<ImGuiURL, 4> links4
     {
         ImGuiURL { "Skyth's DllMods MemoryHelpers", "https://github.com/blueskythlikesclouds/DllMods/blob/3407e53ea9c0cd8dac513d8dab07a283cc932a88/Dependencies/Helpers.h" },

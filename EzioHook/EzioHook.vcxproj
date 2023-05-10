@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Headers\Console.h" />
     <ClInclude Include="Headers\EzioHookMenus.h" />
+    <ClInclude Include="Headers\GetPointer.h" />
     <ClInclude Include="Headers\Hook.h" />
     <ClInclude Include="Headers\LicenseStrings.hpp" />
     <ClInclude Include="Headers\MemoryHelpers.h" />

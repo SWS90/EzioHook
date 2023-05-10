@@ -352,6 +352,7 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Headers\LicenseStrings.hpp" />
+    <ClInclude Include="Headers\GetPointer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceFiles\Console.cpp">
