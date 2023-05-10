@@ -128,4 +128,5 @@ void EzioHookAC2Menu()
             EzioHookCredits();
         }
     }
+    ImGui::End();
 }

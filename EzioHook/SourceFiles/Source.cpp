@@ -85,7 +85,6 @@ HRESULT APIENTRY hkEndScene(IDirect3DDevice9* pDevice)
     if (!InitImGui) 
     {     
         IMGUI_CHECKVERSION();
-        ImGui::CreateContext();
 
         D3DDEVICE_CREATION_PARAMETERS pParameters;
         pDevice->GetCreationParameters(&pParameters);
@@ -341,6 +340,7 @@ BOOL WINAPI DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpReserved)
         InitConsole();
         InitMinHook();
         DisableThreadLibraryCalls(hModule);
+        ImGui::CreateContext();
         CreateThread(0, 0, InitHook, 0, 0, NULL);
         break;
     case DLL_PROCESS_DETACH:
