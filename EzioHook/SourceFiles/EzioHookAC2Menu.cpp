@@ -125,7 +125,7 @@ void EzioHookAC2Menu()
         }
         if (ImGui::BeginTabItem("Camera"))
         {
-            ImGui::SetWindowSize(ImVec2(400, 105));
+            ImGui::SetWindowSize(ImVec2(400, 120));
             ImGui::BeginChild("EH_CameraChild");
             size_t CamFOVBaseAddr = 0x02210B84;
             size_t CamFOVOffsets[] = { 0x20, 0x00, 0x30 };
@@ -138,6 +138,8 @@ void EzioHookAC2Menu()
             {
                 ImGui::SliderFloat("Camera FOV", (float*)CamFOVResult, 0.001f, 3.14f);
                 *((float*)CamFOVResult) = std::clamp(*(float*)CamFOVResult, 0.001f, 3.14f);
+                float Degrees = *((float*)CamFOVResult) * (180.0f / 3.14159265359f);;
+                ImGui::Text("Camera FOV (In Degrees): %f", *(float*)&Degrees);
                 if (ImGui::Button("Restore default FOV"))
                 {
                     *((float*)CamFOVResult) = 0.8072147965f;
