@@ -20,6 +20,7 @@ Assassins Creed 2:
 Force HQ LODS: Based on [Bucket5s Assassins Creed 2 Visual Fixup Mod](https://www.moddb.com/mods/assassins-creed-2-visual-fixup-mod), this will force all buildings to use the highest level-of-detail models available.  
 Realtime Time Of Day editing.  
 Realtime Shadow Resolution editing.  
+Realtime Camera Field-Of-View editing.  
 
 Usage:  
 Grab dinput8.dll in the Release folder and drop it next to the game .exe  
