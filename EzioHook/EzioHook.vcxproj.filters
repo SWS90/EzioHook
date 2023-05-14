@@ -72,7 +72,7 @@
     <ClInclude Include="Headers\resource.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\SharedBools.h">
+    <ClInclude Include="Headers\SharedDataTypes.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Include\minhook\include\MinHook.h">
@@ -365,7 +365,7 @@
     <ClCompile Include="SourceFiles\MinHookHooks.cpp">
       <Filter>SourceFiles</Filter>
     </ClCompile>
-    <ClCompile Include="SourceFiles\SharedBools.cpp">
+    <ClCompile Include="SourceFiles\SharedDataTypes.cpp">
       <Filter>SourceFiles</Filter>
     </ClCompile>
     <ClCompile Include="SourceFiles\Source.cpp">

@@ -3,12 +3,11 @@
 #include <Windows.h>
 #include <string>
 #include <EzioHookMenus.h>
-#include <SharedBools.h>
+#include <SharedDataTypes.h>
 #include <Console.h>
 #include <algorithm>
 #include <GetPointer.h>
 #include <EzioHookPlayerInfo.h>
-float EHWindowAlpha = 0.725f;
 bool ForceHQLODS = false;
 bool ForceHQLODSActive = false;
 static float FrozenTime = 0;

@@ -7,7 +7,7 @@
 #include <Hook.h>
 #include <MinHookHooks.h>
 #include <Console.h>
-#include <SharedBools.h>
+#include <SharedDataTypes.h>
 #include <MemoryHelpers.h>
 #include <EzioHookMenus.h>
 

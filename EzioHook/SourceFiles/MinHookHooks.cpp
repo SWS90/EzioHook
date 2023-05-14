@@ -1,7 +1,7 @@
 #define WIN32_LEAN_AND_MEAN // Exclude rarely-used stuff from Windows headers
 #include <dinput.h>
 #include <Console.h>
-#include <SharedBools.h>
+#include <SharedDataTypes.h>
 #include <MinHook.h>
 bool GetDinputDevice(void** pMouse, size_t size)
 {

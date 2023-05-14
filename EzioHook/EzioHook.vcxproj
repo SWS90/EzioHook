@@ -28,7 +28,7 @@
     <ClInclude Include="Headers\MemoryHelpers.h" />
     <ClInclude Include="Headers\MinHookHooks.h" />
     <ClInclude Include="Headers\resource.h" />
-    <ClInclude Include="Headers\SharedBools.h" />
+    <ClInclude Include="Headers\SharedDataTypes.h" />
     <ClInclude Include="Include\Detours\Include\detours.h" />
     <ClInclude Include="Include\ImGui\imconfig.h" />
     <ClInclude Include="Include\ImGui\imgui.h" />
@@ -143,7 +143,7 @@
     <ClCompile Include="SourceFiles\EzioHookACBMenu.cpp" />
     <ClCompile Include="SourceFiles\EzioHookACRMenu.cpp" />
     <ClCompile Include="SourceFiles\MinHookHooks.cpp" />
-    <ClCompile Include="SourceFiles\SharedBools.cpp" />
+    <ClCompile Include="SourceFiles\SharedDataTypes.cpp" />
     <ClCompile Include="SourceFiles\Source.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 #include <ImGui.h>
 #include <Windows.h>
 #include <GetPointer.h>
-#include <SharedBools.h>
+#include <SharedDataTypes.h>
 void PlayerPosAC2()
 {
 	size_t PlayerPosBaseAddr = 0x022133FC;
