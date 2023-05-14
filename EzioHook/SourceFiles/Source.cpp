@@ -122,6 +122,11 @@ HRESULT APIENTRY hkEndScene(IDirect3DDevice9* pDevice)
             InputHandler();
             EzioHookAC2Menu();
         }
+        
+        if (ShowPlayerInfoAC2)
+        {
+            EzioHookAC2PlayerInfoWindow();
+        }
     }
 
     if (GameIsACB == true)

@@ -353,6 +353,7 @@
     </ClInclude>
     <ClInclude Include="Headers\LicenseStrings.hpp" />
     <ClInclude Include="Headers\GetPointer.h" />
+    <ClInclude Include="Headers\EzioHookPlayerInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceFiles\Console.cpp">
@@ -412,6 +413,8 @@
     <ClCompile Include="SourceFiles\EzioHookACBMenu.cpp" />
     <ClCompile Include="SourceFiles\EzioHookACRMenu.cpp" />
     <ClCompile Include="SourceFiles\EzioHookCredits.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfoWindow.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\minhook\.editorconfig">

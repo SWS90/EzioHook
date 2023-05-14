@@ -7,6 +7,7 @@
 #include <Console.h>
 #include <algorithm>
 #include <GetPointer.h>
+#include <EzioHookPlayerInfo.h>
 float EHWindowAlpha = 0.725f;
 bool ForceHQLODS = false;
 bool ForceHQLODSActive = false;
@@ -125,7 +126,7 @@ void EzioHookAC2Menu()
         }
         if (ImGui::BeginTabItem("Camera"))
         {
-            ImGui::SetWindowSize(ImVec2(400, 120));
+            ImGui::SetWindowSize(ImVec2(440, 120));
             ImGui::BeginChild("EH_CameraChild");
             size_t CamFOVBaseAddr = 0x02210B84;
             size_t CamFOVOffsets[] = { 0x20, 0x00, 0x30 };
@@ -147,6 +148,13 @@ void EzioHookAC2Menu()
             }
             ImGui::EndChild();
             ImGui::EndTabItem();
+        }
+        if (ImGui::BeginTabItem("Player"))
+        {
+            ImGui::SetWindowSize(ImVec2(440, 120));
+            ImGui::BeginChild("EH_PlayerChild");
+            ImGui::Checkbox("Show seperate Player Info window.", &ShowPlayerInfoAC2);
+            PlayerPosAC2();
         }
         
         if (ImGui::BeginTabItem("EzioHook Credits"))
