@@ -154,11 +154,18 @@ void EzioHookAC2Menu()
             ImGui::BeginChild("EH_PlayerChild");
             ImGui::Checkbox("Show separate Player Info window.", &ShowPlayerInfoAC2);
             PlayerPosAC2();
+            ImGui::EndChild();
+            ImGui::EndTabItem();
         }
         
         if (ImGui::BeginTabItem("EzioHook Credits"))
         {
+            ImGui::SetWindowSize(ImVec2(615, 500)); 
+            ImGui::BeginChild("EHCreditsChild");
             EzioHookCredits();
+            ImGui::EndChild();
+            ImGui::EndTabItem();
+            ImGui::EndTabBar();
         }
     }
     ImGui::End();

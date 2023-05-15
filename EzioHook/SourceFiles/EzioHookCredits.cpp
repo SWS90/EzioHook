@@ -34,8 +34,6 @@ struct ImGuiURL
 };
 void EzioHookCredits()
 {
-    ImGui::SetWindowSize(ImVec2(615, 500));
-    ImGui::BeginChild("EHCreditsChild");
     ImGui::Text("EzioHook was made by SWS90, with additional help from Sajid");
     static std::array<ImGuiURL, 1> links1
     {
@@ -103,8 +101,4 @@ void EzioHookCredits()
         }
     }
     ImGui::Separator();
-    ImGui::EndChild();
-    ImGui::EndTabItem();
-    ImGui::EndTabBar();
-
 }

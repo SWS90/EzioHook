@@ -16,5 +16,4 @@ void PlayerPosAC2()
 	{
 		ImGui::Text("Player Position(X,Y,Z) %.3f %.3f %.3f", PlayerPos[0], PlayerPos[1], PlayerPos[2]);
 	}
-	ImGui::End();
 }
