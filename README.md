@@ -21,7 +21,9 @@ Force HQ LODS: Based on [Bucket5s Assassins Creed 2 Visual Fixup Mod](https://ww
 Realtime Time Of Day editing.  
 Realtime Shadow Resolution editing.  
 Realtime Camera Field-Of-View editing.  
-Realtime Player Position Information.  
+Realtime Player Position Information.   
+Realtime Player Speed Information.  
+Realtime Player Scale editing.  
 
 Usage:  
 Grab dinput8.dll in the Release folder and drop it next to the game .exe  
