@@ -12,12 +12,15 @@ void PlayerPosAC2()
 	float* PlayerPos = (float*)GetPointer(PlayerPosBaseAddr, PlayerXPosOffsets, _countof(PlayerXPosOffsets));
 	if (PosXResult == 0)
 	{
-		ImGui::Text("Cannot currently read Player Position Info.");
+		ImGui::BeginDisabled(true); 
+		ImGui::Text("Player Position(X,Y,Z): ???");
 		ImGui::Separator();
+		ImGui::EndDisabled();
 	}
 	if (PosXResult != 0)
 	{
-		ImGui::Text("Player Position(X,Y,Z) %.3f %.3f %.3f", PlayerPos[0], PlayerPos[1], PlayerPos[2]);
+		ImGui::BeginDisabled(false); 
+		ImGui::Text("Player Position(X,Y,Z): %.3f %.3f %.3f", PlayerPos[0], PlayerPos[1], PlayerPos[2]);
 		ImGui::Separator();
 	}
 }
@@ -29,11 +32,16 @@ void PlayerSpeedAC2()
 	float* PlayerSpeed = (float*)GetPointer(PlayerSpeedBaseAddr, PlayerSpeedXOffsets, _countof(PlayerSpeedXOffsets));
 	if (PlayerSpeedResult == 0)
 	{
-		ImGui::Text("Cannot currently read Player Speed Info.");
+		ImGui::BeginDisabled(true); 
+		ImGui::Text("Player Speed (X,Y,Z): ???");
+		ImGui::Separator();
+		ImGui::Text("Overall Player Speed: ???");
+		ImGui::EndDisabled();
 	}
 	if (PlayerSpeedResult != 0)
 	{
-		ImGui::Text("Player Speed (X,Y,Z) %.3f %.3f %.3f", PlayerSpeed[0], PlayerSpeed[1], PlayerSpeed[2]);
+		ImGui::BeginDisabled(false); 
+		ImGui::Text("Player Speed (X,Y,Z): %.3f %.3f %.3f", PlayerSpeed[0], PlayerSpeed[1], PlayerSpeed[2]);
 		ImGui::Separator();
 		ImGui::Text("Overall Player Speed: %.3f", sqrtf(PlayerSpeed[0] * PlayerSpeed[0] + PlayerSpeed[1] * PlayerSpeed[1] + PlayerSpeed[2] * PlayerSpeed[2]));
 	}
@@ -48,12 +56,18 @@ void PlayerScaleAC2()
 	size_t PlayerScaleZResult = GetPointer(PlayerScaleZBaseAddr, PlayerScaleZOffsets, _countof(PlayerScaleZOffsets));
 	if (PlayerScaleXYResult == 0 || PlayerScaleZResult == 0)
 	{
-		ImGui::Separator(); 
-		ImGui::Text("Cannot currently read Player Scale Info.");
+		ImGui::BeginDisabled(true); 
+		ImGui::Separator();
+		ImGui::Checkbox("Show separate Player Scale Sliders", &ShowSeparatePlayerScaleSlidersAC2);
+		ImGui::SliderFloat("Player Scale X/Y", &EHFloatCannotRead, 0.1f, 10.0f);
+		ImGui::SliderFloat("Player Scale Z", &EHFloatCannotRead, 0.1f, 10.0f);
+		ImGui::Button("Restore default Player Scale");
+		ImGui::EndDisabled();
 	}
 	if (PlayerScaleXYResult != 0 && PlayerScaleZResult !=0)
 	{
-		ImGui::Separator(); 
+		ImGui::BeginDisabled(false); 
+		ImGui::Separator();
 		ImGui::Checkbox("Show separate Player Scale Sliders", &ShowSeparatePlayerScaleSlidersAC2);
 		if (ShowSeparatePlayerScaleSlidersAC2)
 		{

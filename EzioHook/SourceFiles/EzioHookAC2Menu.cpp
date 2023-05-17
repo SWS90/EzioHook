@@ -132,10 +132,15 @@ void EzioHookAC2Menu()
             size_t CamFOVResult = GetPointer(CamFOVBaseAddr, CamFOVOffsets, _countof(CamFOVOffsets));
             if (CamFOVResult == 0)
             {
-                ImGui::Text("Cannot currently read CameraFOV value.");
+                ImGui::BeginDisabled(true);
+                ImGui::SliderFloat("Camera FOV", &EHFloatCannotRead, 0.001f, 3.14f);
+                ImGui::Text("Camera FOV (In Degrees): ???");
+                ImGui::Button("Restore default FOV");
+                ImGui::EndDisabled();
             }
             if (CamFOVResult != 0)
             {
+                ImGui::BeginDisabled(false);
                 ImGui::SliderFloat("Camera FOV", (float*)CamFOVResult, 0.001f, 3.14f);
                 *((float*)CamFOVResult) = std::clamp(*(float*)CamFOVResult, 0.001f, 3.14f);
                 float Degrees = *((float*)CamFOVResult) * (180.0f / 3.14159265359f);;
