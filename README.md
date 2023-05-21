@@ -29,7 +29,10 @@ Usage:
 Grab dinput8.dll in the Release folder and drop it next to the game .exe  
 
 Known bugs:  
-Alt-Tabbing back into game will immediately crash the game.
+Alt-Tabbing back into game will immediately crash the game.  
+[AC2] - Having a different scale other than the default of 1 when entering certain events (for example crowd blending) will automatically resize the player to default.    
+However leaving the event will resize the player to the previous set scale. Attemping to scale the player down after this will result in a incorrect looking/acting player.    
+You must return to the title screen and reload your save to fix this!  
 
 Game compatibility:  
 Ezio Hooks memory addresses were made using the Steam version of each game.     

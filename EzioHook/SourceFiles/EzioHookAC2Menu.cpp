@@ -155,7 +155,7 @@ void EzioHookAC2Menu()
         }
         if (ImGui::BeginTabItem("Player"))
         {
-            ImGui::SetWindowSize(ImVec2(440, 235));
+            ImGui::SetWindowSize(ImVec2(440, 250));
             ImGui::BeginChild("EH_PlayerChild");
             ImGui::Checkbox("Show separate Player Info window.", &ShowPlayerInfoAC2);
             PlayerPosAC2();

@@ -59,6 +59,9 @@ void PlayerScaleAC2()
 		ImGui::BeginDisabled(true); 
 		ImGui::Separator();
 		ImGui::Checkbox("Show separate Player Scale Sliders", &ShowSeparatePlayerScaleSlidersAC2);
+		ImGui::Text("Warning about editing player scale");
+		ImGui::SameLine();
+		ImGui::Text("(?)");
 		ImGui::SliderFloat("Player Scale X/Y", &EHFloatCannotRead, 0.1f, 10.0f);
 		ImGui::SliderFloat("Player Scale Z", &EHFloatCannotRead, 0.1f, 10.0f);
 		ImGui::Button("Restore default Player Scale");
@@ -69,6 +72,10 @@ void PlayerScaleAC2()
 		ImGui::BeginDisabled(false); 
 		ImGui::Separator();
 		ImGui::Checkbox("Show separate Player Scale Sliders", &ShowSeparatePlayerScaleSlidersAC2);
+		ImGui::Text("Warning about editing player scale");
+		ImGui::SameLine();
+		ImGui::Text("(?)");
+		if (ImGui::IsItemHovered()) { ImGui::SetTooltip("Having a different scale other than the default of 1 when entering certain events (for example crowd blending)\nWill automatically resize the player to default.\nHowever leaving the event will resize the player to the previous set scale.\nAttemping to scale the player down after this will result in a incorrect looking/acting player.\nYou must return to the title screen and reload your save to fix this!");}
 		if (ShowSeparatePlayerScaleSlidersAC2)
 		{
 			ImGui::SliderFloat("Player Scale X/Y", (float*)PlayerScaleXYResult, 0.1f, 10.0f);
