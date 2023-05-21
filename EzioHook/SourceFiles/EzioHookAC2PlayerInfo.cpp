@@ -56,7 +56,8 @@ void PlayerScaleAC2()
 	size_t PlayerScaleZResult = GetPointer(PlayerScaleZBaseAddr, PlayerScaleZOffsets, _countof(PlayerScaleZOffsets));
 	if (PlayerScaleXYResult == 0 || PlayerScaleZResult == 0)
 	{
-		ImGui::BeginDisabled(true); 
+		ShowSeparatePlayerScaleSlidersAC2 = true;
+		ImGui::BeginDisabled(true);
 		ImGui::Separator();
 		ImGui::Checkbox("Show separate Player Scale Sliders", &ShowSeparatePlayerScaleSlidersAC2);
 		ImGui::Text("Warning about editing player scale");

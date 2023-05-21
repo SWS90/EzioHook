@@ -155,11 +155,19 @@ void EzioHookAC2Menu()
         }
         if (ImGui::BeginTabItem("Player"))
         {
-            ImGui::SetWindowSize(ImVec2(440, 250));
+            if (ShowPlayerInfoWindowAC2) { ImGui::SetWindowSize(ImVec2(440, 200)); }
+            if (!ShowPlayerInfoWindowAC2) { ImGui::SetWindowSize(ImVec2(440, 250)); }
+            if (ShowPlayerInfoWindowAC2 && ShowSeparatePlayerScaleSlidersAC2) { ImGui::SetWindowSize(ImVec2(440, 190)); }
+            if (ShowPlayerInfoWindowAC2 && !ShowSeparatePlayerScaleSlidersAC2) { ImGui::SetWindowSize(ImVec2(440, 170)); }
+            if (!ShowPlayerInfoWindowAC2 && ShowSeparatePlayerScaleSlidersAC2) { ImGui::SetWindowSize(ImVec2(440, 250)); }
+            if (!ShowPlayerInfoWindowAC2 && !ShowSeparatePlayerScaleSlidersAC2) { ImGui::SetWindowSize(ImVec2(440, 230)); }
             ImGui::BeginChild("EH_PlayerChild");
             ImGui::Checkbox("Show separate Player Info window.", &ShowPlayerInfoWindowAC2);
-            PlayerPosAC2();
-            PlayerSpeedAC2();
+            if (!ShowPlayerInfoWindowAC2)
+            {
+                PlayerPosAC2();
+                PlayerSpeedAC2();
+            }
             PlayerScaleAC2();
             ImGui::EndChild();
             ImGui::EndTabItem();
