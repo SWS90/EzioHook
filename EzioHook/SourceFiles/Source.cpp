@@ -123,7 +123,7 @@ HRESULT APIENTRY hkEndScene(IDirect3DDevice9* pDevice)
             EzioHookAC2Menu();
         }
         
-        if (ShowPlayerInfoAC2)
+        if (ShowPlayerInfoWindowAC2)
         {
             EzioHookAC2PlayerInfoWindow();
         }
