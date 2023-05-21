@@ -49,9 +49,9 @@ void PlayerSpeedAC2()
 void PlayerScaleAC2()
 {
 	size_t PlayerScaleXYBaseAddr = 0x02213560;
-	size_t PlayerScaleZBaseAddr = 0x022110CC;
+	size_t PlayerScaleZBaseAddr = 0x02213558;
 	size_t PlayerScaleXYOffsets[] = { 0x08, 0x4C, 0x04, 0x00, 0x08, 0xB8, 0xB4 };
-	size_t PlayerScaleZOffsets[] = { 0x34, 0x28, 0x2C, 0x08, 0x18, 0xC4, 0x00, 0x7C };
+	size_t PlayerScaleZOffsets[] = { 0xC, 0x04, 0x00, 0x3C, 0x44, 0x60, 0x1C, 0x24, 0x48, 0x7C };
 	size_t PlayerScaleXYResult = GetPointer(PlayerScaleXYBaseAddr, PlayerScaleXYOffsets, _countof(PlayerScaleXYOffsets));
 	size_t PlayerScaleZResult = GetPointer(PlayerScaleZBaseAddr, PlayerScaleZOffsets, _countof(PlayerScaleZOffsets));
 	if (PlayerScaleXYResult == 0 || PlayerScaleZResult == 0)
