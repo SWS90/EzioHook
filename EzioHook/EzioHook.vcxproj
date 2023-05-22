@@ -137,6 +137,7 @@
     <ClCompile Include="SourceFiles\Console.cpp" />
     <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfo.cpp" />
     <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfoWindow.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookCamera.cpp" />
     <ClCompile Include="SourceFiles\EzioHookCredits.cpp" />
     <ClCompile Include="SourceFiles\DirectInput8Create.cpp" />
     <ClCompile Include="SourceFiles\EzioHookAC2Menu.cpp" />

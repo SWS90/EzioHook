@@ -4,8 +4,6 @@
 #include <EzioHookMenus.h>
 #include <SharedDataTypes.h>
 #include <Console.h>
-#include <algorithm>
-#include <GetPointer.h>
 #include <EzioHookPlayerInfo.h>
 void EzioHookAC2Menu()
 {
@@ -38,29 +36,7 @@ void EzioHookAC2Menu()
         {
             ImGui::SetWindowSize(ImVec2(440, 120));
             ImGui::BeginChild("EH_CameraChild");
-            size_t CamFOVBaseAddr = 0x02210B84;
-            size_t CamFOVOffsets[] = { 0x20, 0x00, 0x30 };
-            size_t CamFOVResult = GetPointer(CamFOVBaseAddr, CamFOVOffsets, _countof(CamFOVOffsets));
-            if (CamFOVResult == 0)
-            {
-                ImGui::BeginDisabled(true);
-                ImGui::SliderFloat("Camera FOV", &EHFloatCannotRead, 0.001f, 3.14f);
-                ImGui::Text("Camera FOV (In Degrees): ???");
-                ImGui::Button("Restore default FOV");
-                ImGui::EndDisabled();
-            }
-            if (CamFOVResult != 0)
-            {
-                ImGui::BeginDisabled(false);
-                ImGui::SliderFloat("Camera FOV", (float*)CamFOVResult, 0.001f, 3.14f);
-                *((float*)CamFOVResult) = std::clamp(*(float*)CamFOVResult, 0.001f, 3.14f);
-                float Degrees = *((float*)CamFOVResult) * (180.0f / 3.14159265359f);;
-                ImGui::Text("Camera FOV (In Degrees): %f", *(float*)&Degrees);
-                if (ImGui::Button("Restore default FOV"))
-                {
-                    *((float*)CamFOVResult) = 0.8072147965f;
-                }
-            }
+            CameraFOVAC2();
             ImGui::EndChild();
             ImGui::EndTabItem();
         }
