@@ -415,6 +415,9 @@
     <ClCompile Include="SourceFiles\EzioHookCredits.cpp" />
     <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfoWindow.cpp" />
     <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfo.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookTimeOfDay.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookShadowResolution.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookHQLODSAC2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\minhook\.editorconfig">
