@@ -9,3 +9,4 @@ extern bool ForceHQLODS;
 extern bool ForceHQLODSActive;
 extern float EHFrozenTime;
 extern int ShadowResValueAC2;
+extern int EHIntCannotRead;

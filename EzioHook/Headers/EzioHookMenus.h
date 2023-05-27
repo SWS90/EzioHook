@@ -9,3 +9,4 @@ void TimeOfdayAC2();
 void ShadowResolutionAC2();
 void TimeOfdayAC2();
 void CameraFOVAC2();
+void InventoryAC2();

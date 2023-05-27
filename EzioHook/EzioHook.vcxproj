@@ -144,6 +144,7 @@
     <ClCompile Include="SourceFiles\EzioHookACBMenu.cpp" />
     <ClCompile Include="SourceFiles\EzioHookACRMenu.cpp" />
     <ClCompile Include="SourceFiles\EzioHookHQLODSAC2.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookInventory.cpp" />
     <ClCompile Include="SourceFiles\EzioHookShadowResolution.cpp" />
     <ClCompile Include="SourceFiles\EzioHookTimeOfDay.cpp" />
     <ClCompile Include="SourceFiles\MinHookHooks.cpp" />

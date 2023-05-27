@@ -9,3 +9,4 @@ bool ForceHQLODS = false;
 bool ForceHQLODSActive = false;
 float EHFrozenTime = 0;
 int ShadowResValueAC2 = *((int*)0x021D0278);
+int EHIntCannotRead = 0;

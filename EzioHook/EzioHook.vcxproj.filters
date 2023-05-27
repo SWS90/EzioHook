@@ -419,6 +419,7 @@
     <ClCompile Include="SourceFiles\EzioHookShadowResolution.cpp" />
     <ClCompile Include="SourceFiles\EzioHookHQLODSAC2.cpp" />
     <ClCompile Include="SourceFiles\EzioHookCamera.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookInventory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\minhook\.editorconfig">

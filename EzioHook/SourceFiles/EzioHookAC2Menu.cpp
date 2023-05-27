@@ -59,6 +59,14 @@ void EzioHookAC2Menu()
             ImGui::EndChild();
             ImGui::EndTabItem();
         }
+        if (ImGui::BeginTabItem("Inventory"))
+        {
+            ImGui::SetWindowSize(ImVec2(440, 120));
+            ImGui::BeginChild("EH_InventoryChild");
+            InventoryAC2();
+            ImGui::EndChild();
+            ImGui::EndTabItem();
+        }
         
         if (ImGui::BeginTabItem("EzioHook Credits"))
         {
