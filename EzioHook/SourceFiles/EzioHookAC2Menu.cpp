@@ -61,7 +61,7 @@ void EzioHookAC2Menu()
         }
         if (ImGui::BeginTabItem("Inventory"))
         {
-            ImGui::SetWindowSize(ImVec2(440, 120));
+            ImGui::SetWindowSize(ImVec2(440, 105));
             ImGui::BeginChild("EH_InventoryChild");
             InventoryAC2();
             ImGui::EndChild();
