@@ -6,6 +6,7 @@
 #include <GetPointer.h>
 #include <algorithm>
 #include <stdint.h>
+#include <EzioHookConfig.h>
 void InventoryAC2()
 {
     size_t PlayerMoneyBaseAddr = 0x022134B4;
@@ -13,14 +14,24 @@ void InventoryAC2()
     size_t PlayerMoneyResult = GetPointer(PlayerMoneyBaseAddr, PlayerMoneyOffsets, _countof(PlayerMoneyOffsets));
     if (PlayerMoneyResult == 0)
     {
+        ImGui::Checkbox("Show Adjustment Amount Config", &ShowPlayerInventoryAdjustAmountWindowAC2); 
         ImGui::BeginDisabled(true);
-        ImGui::InputInt("Florins(Money)", &EHIntCannotRead, 0, 0);
+        ImGui::InputInt("Florins(Money)", &EHIntCannotRead, 1, 0);
+        if (ShowPlayerInventoryAdjustAmountWindowAC2)
+        {
+            EzioHookAC2PlayerInventoryAdjustAmountWindow();
+        }
         ImGui::EndDisabled();
     }
     if (PlayerMoneyResult != 0)
     {
         ImGui::BeginDisabled(false);
-        ImGui::InputInt("Florins(Money)", (int*)PlayerMoneyResult, 1, 10);
+        ImGui::Checkbox("Show Adjustment Amount Config", &ShowPlayerInventoryAdjustAmountWindowAC2);
+        ImGui::InputInt("Florins(Money)", (int*)PlayerMoneyResult, EHPlayerMoneyAdjustAmount, EHPlayerMoneyAdjustAmountFast);
         *((int*)PlayerMoneyResult) = std::clamp(*(int*)PlayerMoneyResult, 20, 2000000000);
+        if (ShowPlayerInventoryAdjustAmountWindowAC2)
+        {
+            EzioHookAC2PlayerInventoryAdjustAmountWindow();
+        }
     }
 }

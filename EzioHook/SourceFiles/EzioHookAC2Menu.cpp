@@ -5,6 +5,7 @@
 #include <SharedDataTypes.h>
 #include <Console.h>
 #include <EzioHookPlayerInfo.h>
+#include <EzioHookConfig.h>
 void EzioHookAC2Menu()
 {
     ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
@@ -15,8 +16,7 @@ void EzioHookAC2Menu()
         {
             ImGui::SetWindowSize(ImVec2(455, 80));
             ImGui::BeginChild("EH_OptionsChild");
-            ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
-            ImGui::SliderFloat("EzioHook Transparency ", &EHWindowAlpha, 0.0f, 1.0f);
+            EzioHookConfig();
             ImGui::EndChild();
             ImGui::EndTabItem();
         }

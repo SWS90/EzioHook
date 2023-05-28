@@ -354,6 +354,7 @@
     <ClInclude Include="Headers\LicenseStrings.hpp" />
     <ClInclude Include="Headers\GetPointer.h" />
     <ClInclude Include="Headers\EzioHookPlayerInfo.h" />
+    <ClInclude Include="Headers\EzioHookConfig.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceFiles\Console.cpp">
@@ -413,13 +414,14 @@
     <ClCompile Include="SourceFiles\EzioHookACBMenu.cpp" />
     <ClCompile Include="SourceFiles\EzioHookACRMenu.cpp" />
     <ClCompile Include="SourceFiles\EzioHookCredits.cpp" />
-    <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfoWindow.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookOtherWindows.cpp" />
     <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfo.cpp" />
     <ClCompile Include="SourceFiles\EzioHookTimeOfDay.cpp" />
     <ClCompile Include="SourceFiles\EzioHookShadowResolution.cpp" />
     <ClCompile Include="SourceFiles\EzioHookHQLODSAC2.cpp" />
     <ClCompile Include="SourceFiles\EzioHookCamera.cpp" />
     <ClCompile Include="SourceFiles\EzioHookInventory.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\minhook\.editorconfig">
