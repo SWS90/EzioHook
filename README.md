@@ -24,6 +24,7 @@ Realtime Camera Field-Of-View editing.
 Realtime Player Position Information.   
 Realtime Player Speed Information.  
 Realtime Player Scale editing.  
+Player Money editing.  
 
 Usage:  
 Grab dinput8.dll in the Release folder and drop it next to the game .exe  
