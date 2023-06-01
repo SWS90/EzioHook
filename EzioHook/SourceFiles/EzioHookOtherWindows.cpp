@@ -6,6 +6,7 @@
 #include <EzioHookOtherWindows.h>
 #include <algorithm>
 float EHWindowAlpha = 0.725f;
+float EHCornerRounding = 0.0f;
 int EHPlayerMoneyAdjustAmount = 1;
 int EHPlayerMoneyAdjustAmountFast = 10;
 bool ShowEzioConfigWindow;
@@ -30,6 +31,20 @@ void EzioHookAC2PlayerInventoryAdjustAmountWindow()
 }
 void EzioHookConfig(bool* ShowEHConfig)
 {
+	ImGui::GetStyle().WindowRounding = EHCornerRounding - 2.0f;
+	ImGui::GetStyle().FrameRounding = EHCornerRounding; 
+	ImGui::GetStyle().GrabRounding = EHCornerRounding; 
 	ImGui::SliderFloat("EzioHook Transparency ", &EHWindowAlpha, 0.0f, 1.0f);
+	ImGui::SliderFloat("Corner Rounding", &EHCornerRounding, 0.0f, 12.0f);
+
+	EHWindowAlpha = std::clamp(EHWindowAlpha, 0.0f, 1.0f);
+	ImGui::GetStyle().WindowRounding = std::clamp(ImGui::GetStyle().WindowRounding, 0.0f, 12.0f);
+	EHCornerRounding = std::clamp(EHCornerRounding, 0.0f, 12.0f);
+
+	if (ImGui::Button("Restore Defaults"))
+	{
+		EHWindowAlpha = 0.725f;
+		EHCornerRounding = 0.0f;
+	}
 	ImGui::End();
 }

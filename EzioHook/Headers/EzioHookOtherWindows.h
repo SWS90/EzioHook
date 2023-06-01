@@ -7,3 +7,4 @@ extern int EHPlayerMoneyAdjustAmount;
 extern int EHPlayerMoneyAdjustAmountFast;
 extern bool ShowEzioConfigWindow;
 extern bool ShowEzioCreditsWindow;
+extern float EHCornerRounding;
