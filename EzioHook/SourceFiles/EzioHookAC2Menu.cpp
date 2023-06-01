@@ -5,78 +5,76 @@
 #include <SharedDataTypes.h>
 #include <Console.h>
 #include <EzioHookPlayerInfo.h>
-#include <EzioHookConfig.h>
+#include <EzioHookOtherWindows.h>
+
 void EzioHookAC2Menu()
 {
     ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
-    ImGui::Begin("EzioHook: Assassins Creed II - (INSERT-Show/Hide)" , NULL, ImGuiWindowFlags_NoResize);
-    if (ImGui::BeginTabBar("EH_Tabs", ImGuiTabBarFlags_None))
+    ImGui::SetNextWindowSize(ImVec2(635, 560), ImGuiCond_FirstUseEver);
+    if (ImGui::Begin("EzioHook: Assassins Creed II - (INSERT-Show/Hide)", NULL, ImGuiWindowFlags_MenuBar))
     {
-        if (ImGui::BeginTabItem("EzioHook Options"))
-        {
-            ImGui::SetWindowSize(ImVec2(455, 80));
-            ImGui::BeginChild("EH_OptionsChild");
-            EzioHookConfig();
-            ImGui::EndChild();
-            ImGui::EndTabItem();
+        if (ShowEzioConfigWindow) 
+        { 
+            ImGui::SetNextWindowBgAlpha(EHWindowAlpha); 
+            ImGui::Begin("EzioHookConfig", &ShowEzioConfigWindow, ImGuiWindowFlags_AlwaysAutoResize);
+            EzioHookConfig(&ShowEzioConfigWindow);
         }
-        if (ImGui::BeginTabItem("Graphics"))
-        {
-            ImGui::SetWindowSize(ImVec2(505, 165));
-            ImGui::BeginChild("EH_GraphicsChild");
-            int ShadowResValue = *((int*)0x021D0278);
-            ImGui::Text("Shadow Resolution: %d", ShadowResValue);
-            HQLODSAC2();
-            TimeOfdayAC2();
-            ShadowResolutionAC2();
-            ImGui::EndChild();
-            ImGui::EndTabItem();
-        }
-        if (ImGui::BeginTabItem("Camera"))
-        {
-            ImGui::SetWindowSize(ImVec2(440, 120));
-            ImGui::BeginChild("EH_CameraChild");
-            CameraFOVAC2();
-            ImGui::EndChild();
-            ImGui::EndTabItem();
-        }
-        if (ImGui::BeginTabItem("Player"))
-        {
-            if (ShowPlayerInfoWindowAC2) { ImGui::SetWindowSize(ImVec2(440, 200)); }
-            if (!ShowPlayerInfoWindowAC2) { ImGui::SetWindowSize(ImVec2(440, 250)); }
-            if (ShowPlayerInfoWindowAC2 && ShowSeparatePlayerScaleSlidersAC2) { ImGui::SetWindowSize(ImVec2(440, 190)); }
-            if (ShowPlayerInfoWindowAC2 && !ShowSeparatePlayerScaleSlidersAC2) { ImGui::SetWindowSize(ImVec2(440, 170)); }
-            if (!ShowPlayerInfoWindowAC2 && ShowSeparatePlayerScaleSlidersAC2) { ImGui::SetWindowSize(ImVec2(440, 250)); }
-            if (!ShowPlayerInfoWindowAC2 && !ShowSeparatePlayerScaleSlidersAC2) { ImGui::SetWindowSize(ImVec2(440, 230)); }
-            ImGui::BeginChild("EH_PlayerChild");
-            ImGui::Checkbox("Show separate Player Info window.", &ShowPlayerInfoWindowAC2);
-            if (!ShowPlayerInfoWindowAC2)
-            {
-                PlayerPosAC2();
-                PlayerSpeedAC2();
-            }
-            PlayerScaleAC2();
-            ImGui::EndChild();
-            ImGui::EndTabItem();
-        }
-        if (ImGui::BeginTabItem("Inventory"))
-        {
-            ImGui::SetWindowSize(ImVec2(440, 105));
-            ImGui::BeginChild("EH_InventoryChild");
-            InventoryAC2();
-            ImGui::EndChild();
-            ImGui::EndTabItem();
+        if (ShowEzioCreditsWindow) 
+        { 
+            ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
+            ImGui::Begin("EzioHookCredits", &ShowEzioCreditsWindow, ImGuiWindowFlags_AlwaysAutoResize);
+            EzioHookCredits(&ShowEzioCreditsWindow);
         }
         
-        if (ImGui::BeginTabItem("EzioHook Credits"))
+        if (ImGui::BeginMenuBar())
         {
-            ImGui::SetWindowSize(ImVec2(615, 500)); 
-            ImGui::BeginChild("EHCreditsChild");
-            EzioHookCredits();
-            ImGui::EndChild();
-            ImGui::EndTabItem();
-            ImGui::EndTabBar();
+            if (ImGui::BeginMenu("View"))
+            {
+                ImGui::MenuItem("Config", NULL, &ShowEzioConfigWindow);
+                ImGui::Separator();
+                ImGui::MenuItem("Credits", NULL, &ShowEzioCreditsWindow);
+                ImGui::EndMenu();
+            }
         }
+        ImGui::EndMenuBar();
+    }
+    
+    if (ImGui::CollapsingHeader("Graphics"))
+    {
+        ImGui::TreePush("GraphicsTree"); 
+        int ShadowResValue = *((int*)0x021D0278);
+        ImGui::Text("Shadow Resolution: %d", ShadowResValue);
+        HQLODSAC2();
+        TimeOfdayAC2();
+        ShadowResolutionAC2();
+        ImGui::TreePop();
+    }
+
+    if (ImGui::CollapsingHeader("Camera"))
+    {
+        ImGui::TreePush("CameraTree");
+        CameraFOVAC2();
+        ImGui::TreePop();
+    }
+    
+    if (ImGui::CollapsingHeader("Player"))
+    {
+        ImGui::TreePush("PlayerTree"); 
+        ImGui::Checkbox("Show separate Player Info window.", &ShowPlayerInfoWindowAC2);
+        if (!ShowPlayerInfoWindowAC2)
+        {
+            PlayerPosAC2();
+            PlayerSpeedAC2();
+        }
+        PlayerScaleAC2();
+        ImGui::TreePop();
+    }
+
+    if (ImGui::CollapsingHeader("Inventory"))
+    {
+        ImGui::TreePush("InventoryTree");
+        InventoryAC2();
+        ImGui::TreePop();
     }
     ImGui::End();
 }

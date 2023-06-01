@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Console.h" />
-    <ClInclude Include="Headers\EzioHookConfig.h" />
+    <ClInclude Include="Headers\EzioHookOtherWindows.h" />
     <ClInclude Include="Headers\EzioHookPlayerInfo.h" />
     <ClInclude Include="Headers\EzioHookMenus.h" />
     <ClInclude Include="Headers\GetPointer.h" />
@@ -139,7 +139,6 @@
     <ClCompile Include="SourceFiles\EzioHookAC2PlayerInfo.cpp" />
     <ClCompile Include="SourceFiles\EzioHookOtherWindows.cpp" />
     <ClCompile Include="SourceFiles\EzioHookCamera.cpp" />
-    <ClCompile Include="SourceFiles\EzioHookConfig.cpp" />
     <ClCompile Include="SourceFiles\EzioHookCredits.cpp" />
     <ClCompile Include="SourceFiles\DirectInput8Create.cpp" />
     <ClCompile Include="SourceFiles\EzioHookAC2Menu.cpp" />

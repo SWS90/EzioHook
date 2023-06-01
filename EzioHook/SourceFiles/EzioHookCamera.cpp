@@ -21,7 +21,6 @@ void CameraFOVAC2()
     }
     if (CamFOVResult != 0)
     {
-        ImGui::BeginDisabled(false);
         ImGui::SliderFloat("Camera FOV", (float*)CamFOVResult, 0.001f, 3.14f);
         *((float*)CamFOVResult) = std::clamp(*(float*)CamFOVResult, 0.001f, 3.14f);
         float Degrees = *((float*)CamFOVResult) * (180.0f / 3.14159265359f);;

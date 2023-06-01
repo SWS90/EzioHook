@@ -6,7 +6,7 @@
 #include <GetPointer.h>
 #include <algorithm>
 #include <stdint.h>
-#include <EzioHookConfig.h>
+#include <EzioHookOtherWindows.h>
 void InventoryAC2()
 {
     size_t PlayerMoneyBaseAddr = 0x022134B4;
@@ -25,7 +25,6 @@ void InventoryAC2()
     }
     if (PlayerMoneyResult != 0)
     {
-        ImGui::BeginDisabled(false);
         ImGui::Checkbox("Show Adjustment Amount Config", &ShowPlayerInventoryAdjustAmountWindowAC2);
         ImGui::InputInt("Florins(Money)", (int*)PlayerMoneyResult, EHPlayerMoneyAdjustAmount, EHPlayerMoneyAdjustAmountFast);
         *((int*)PlayerMoneyResult) = std::clamp(*(int*)PlayerMoneyResult, 20, 2000000000);

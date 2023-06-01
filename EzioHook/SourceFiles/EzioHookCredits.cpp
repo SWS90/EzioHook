@@ -5,6 +5,7 @@
 #include <shellapi.h>
 #include <WinUser.h>
 #include <LicenseStrings.hpp>
+#include <EzioHookOtherWindows.h>
 void under_line(const ImColor& col)
 {
     ImVec2 min = ImGui::GetItemRectMin();
@@ -32,7 +33,7 @@ struct ImGuiURL
         }
     }
 };
-void EzioHookCredits()
+void EzioHookCredits(bool* ShowEHCredits)
 {
     ImGui::Text("EzioHook was made by SWS90, with additional help from Sajid");
     static std::array<ImGuiURL, 1> links1
@@ -101,4 +102,5 @@ void EzioHookCredits()
         }
     }
     ImGui::Separator();
+    ImGui::End();
 }

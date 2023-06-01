@@ -3,8 +3,13 @@
 #include <Windows.h>
 #include <EzioHookPlayerInfo.h>
 #include <SharedDataTypes.h>
-#include <EzioHookConfig.h>
+#include <EzioHookOtherWindows.h>
 #include <algorithm>
+float EHWindowAlpha = 0.725f;
+int EHPlayerMoneyAdjustAmount = 1;
+int EHPlayerMoneyAdjustAmountFast = 10;
+bool ShowEzioConfigWindow;
+bool ShowEzioCreditsWindow;
 void EzioHookAC2PlayerInfoWindow()
 {
 	ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
@@ -21,5 +26,10 @@ void EzioHookAC2PlayerInventoryAdjustAmountWindow()
 	ImGui::InputInt("Money Adjustment Amount (Fast)", &EHPlayerMoneyAdjustAmountFast, 1, 10);
 	EHPlayerMoneyAdjustAmount = std::clamp(EHPlayerMoneyAdjustAmount, 1, 2000000000);
 	EHPlayerMoneyAdjustAmountFast = std::clamp(EHPlayerMoneyAdjustAmountFast, 10, 2000000000);
+	ImGui::End();
+}
+void EzioHookConfig(bool* ShowEHConfig)
+{
+	ImGui::SliderFloat("EzioHook Transparency ", &EHWindowAlpha, 0.0f, 1.0f);
 	ImGui::End();
 }

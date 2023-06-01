@@ -19,7 +19,6 @@ void PlayerPosAC2()
 	}
 	if (PosXResult != 0)
 	{
-		ImGui::BeginDisabled(false); 
 		ImGui::Text("Player Position(X,Y,Z): %.3f %.3f %.3f", PlayerPos[0], PlayerPos[1], PlayerPos[2]);
 		ImGui::Separator();
 	}
@@ -40,7 +39,6 @@ void PlayerSpeedAC2()
 	}
 	if (PlayerSpeedResult != 0)
 	{
-		ImGui::BeginDisabled(false); 
 		ImGui::Text("Player Speed (X,Y,Z): %.3f %.3f %.3f", PlayerSpeed[0], PlayerSpeed[1], PlayerSpeed[2]);
 		ImGui::Separator();
 		ImGui::Text("Overall Player Speed: %.3f", sqrtf(PlayerSpeed[0] * PlayerSpeed[0] + PlayerSpeed[1] * PlayerSpeed[1] + PlayerSpeed[2] * PlayerSpeed[2]));
@@ -70,7 +68,6 @@ void PlayerScaleAC2()
 	}
 	if (PlayerScaleXYResult != 0 && PlayerScaleZResult !=0)
 	{
-		ImGui::BeginDisabled(false); 
 		ImGui::Separator();
 		ImGui::Checkbox("Show separate Player Scale Sliders", &ShowSeparatePlayerScaleSlidersAC2);
 		ImGui::Text("Warning about editing player scale");

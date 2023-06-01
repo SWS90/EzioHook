@@ -2,11 +2,9 @@
 void EzioHookAC2Menu();
 void EzioHookACBMenu();
 void EzioHookACRMenu();
-void EzioHookCredits();
 void EzioHookAC2PlayerInfoWindow();
 void HQLODSAC2();
 void TimeOfdayAC2();
 void ShadowResolutionAC2();
-void TimeOfdayAC2();
 void CameraFOVAC2();
 void InventoryAC2();
