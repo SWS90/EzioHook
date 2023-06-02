@@ -251,6 +251,17 @@ HRESULT APIENTRY hkSetPixelShader(IDirect3DDevice9* pDevice, IDirect3DPixelShade
 	return oSetPixelShader(pDevice, pShader);
 }
 
+LRESULT CALLBACK LLMOUSEHOOK(int nCode, WPARAM wParam, LPARAM lParam)
+{
+    MSLLHOOKSTRUCT* s = reinterpret_cast<MSLLHOOKSTRUCT*>(lParam);
+
+    switch (wParam)
+    {
+
+    }
+    return CallNextHookEx(NULL, nCode, wParam, lParam);
+}
+
 DWORD WINAPI InitHook(LPVOID lpParameter) 
 {
     /*/if (ChecktDirectXVersion(DirectXVersion.D3D9) == false)
@@ -327,6 +338,14 @@ DWORD WINAPI InitHook(LPVOID lpParameter)
     DetourAttach(&(LPVOID&)oSetVertexShader, (PBYTE)hkSetVertexShader);
     DetourAttach(&(LPVOID&)oSetPixelShader, (PBYTE)hkSetPixelShader);
     DetourTransactionCommit();
+
+    SetWindowsHookEx(WH_MOUSE_LL, &LLMOUSEHOOK, 0, 0);
+    MSG message;
+    while (GetMessage(&message, NULL, NULL, NULL) > 0)
+    {
+        TranslateMessage(&message);
+        DispatchMessage(&message);
+    }
     
     pDevice->Release();
     IDirect3D9->Release();
