@@ -111,8 +111,7 @@ HRESULT APIENTRY hkEndScene(IDirect3DDevice9* pDevice)
             ShowEzioHookAC2Menu = !ShowEzioHookAC2Menu;
             BlockMouseToGame = !BlockMouseToGame;
             if (FreezeTimeOfDayAC2 == true) { FreezeTimeOfDayAC2 = false; }
-            if (ShowEzioConfigWindow) { ShowEzioConfigWindow = false; }
-            if (ShowEzioCreditsWindow) { ShowEzioCreditsWindow = false; }
+            if (ShowEHCreditsWindow) { ShowEHCreditsWindow = false; }
         }
         ImGui::GetIO().MouseDrawCursor = ShowEzioHookAC2Menu;
         ImGui::GetIO().WantCaptureMouse = ShowEzioHookAC2Menu; 

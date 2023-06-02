@@ -13,26 +13,24 @@ void EzioHookAC2Menu()
     ImGui::SetNextWindowSize(ImVec2(635, 560), ImGuiCond_FirstUseEver);
     if (ImGui::Begin("EzioHook: Assassins Creed II - (INSERT-Show/Hide)", NULL, ImGuiWindowFlags_MenuBar))
     {
-        if (ShowEzioConfigWindow) 
-        { 
-            ImGui::SetNextWindowBgAlpha(EHWindowAlpha); 
-            ImGui::Begin("EzioHookConfig", &ShowEzioConfigWindow, ImGuiWindowFlags_AlwaysAutoResize);
-            EzioHookConfig(&ShowEzioConfigWindow);
-        }
-        if (ShowEzioCreditsWindow) 
+        if (ShowEHCreditsWindow)
         { 
             ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
-            ImGui::Begin("EzioHookCredits", &ShowEzioCreditsWindow, ImGuiWindowFlags_AlwaysAutoResize);
-            EzioHookCredits(&ShowEzioCreditsWindow);
+            ImGui::Begin("EzioHookCredits", &ShowEHCreditsWindow, ImGuiWindowFlags_AlwaysAutoResize);
+            EzioHookCredits(&ShowEHCreditsWindow);
         }
         
         if (ImGui::BeginMenuBar())
         {
             if (ImGui::BeginMenu("View"))
             {
-                ImGui::MenuItem("Config", NULL, &ShowEzioConfigWindow);
+                if (ImGui::BeginMenu("Config"))
+                {
+                    EzioHookConfig();
+                    ImGui::EndMenu();
+                }
                 ImGui::Separator();
-                ImGui::MenuItem("Credits", NULL, &ShowEzioCreditsWindow);
+                ImGui::MenuItem("Credits", NULL, &ShowEHCreditsWindow);
                 ImGui::EndMenu();
             }
         }

@@ -9,8 +9,7 @@ float EHWindowAlpha = 0.725f;
 float EHCornerRounding = 0.0f;
 int EHPlayerMoneyAdjustAmount = 1;
 int EHPlayerMoneyAdjustAmountFast = 10;
-bool ShowEzioConfigWindow;
-bool ShowEzioCreditsWindow;
+bool ShowEHCreditsWindow;
 void EzioHookAC2PlayerInfoWindow()
 {
 	ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
@@ -29,12 +28,12 @@ void EzioHookAC2PlayerInventoryAdjustAmountWindow()
 	EHPlayerMoneyAdjustAmountFast = std::clamp(EHPlayerMoneyAdjustAmountFast, 10, 2000000000);
 	ImGui::End();
 }
-void EzioHookConfig(bool* ShowEHConfig)
+void EzioHookConfig()
 {
 	ImGui::GetStyle().WindowRounding = EHCornerRounding - 2.0f;
 	ImGui::GetStyle().FrameRounding = EHCornerRounding; 
 	ImGui::GetStyle().GrabRounding = EHCornerRounding; 
-	ImGui::SliderFloat("EzioHook Transparency ", &EHWindowAlpha, 0.0f, 1.0f);
+	ImGui::SliderFloat("Window Transparency ", &EHWindowAlpha, 0.0f, 1.0f);
 	ImGui::SliderFloat("Corner Rounding", &EHCornerRounding, 0.0f, 12.0f);
 
 	EHWindowAlpha = std::clamp(EHWindowAlpha, 0.0f, 1.0f);
@@ -46,5 +45,4 @@ void EzioHookConfig(bool* ShowEHConfig)
 		EHWindowAlpha = 0.725f;
 		EHCornerRounding = 0.0f;
 	}
-	ImGui::End();
 }
