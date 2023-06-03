@@ -10,3 +10,4 @@ extern float EHFrozenTime;
 extern int ShadowResValueAC2;
 extern int EHIntCannotRead;
 extern bool ShowPlayerInventoryAdjustAmountWindowAC2;
+extern float EHScrollAmount;

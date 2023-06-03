@@ -259,7 +259,7 @@ LRESULT CALLBACK LLMOUSEHOOK(int nCode, WPARAM wParam, LPARAM lParam)
         switch (wParam)
         {
         case WM_MOUSEWHEEL:
-            ImGui::GetIO().MouseWheel += (float)GET_WHEEL_DELTA_WPARAM(MouseInfo->mouseData) / (float)WHEEL_DELTA;
+            ImGui::GetIO().MouseWheel += (float)GET_WHEEL_DELTA_WPARAM(MouseInfo->mouseData) / (float)WHEEL_DELTA *EHScrollAmount;
         }
         return CallNextHookEx(NULL, nCode, wParam, lParam);
     }
