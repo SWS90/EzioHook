@@ -253,13 +253,16 @@ HRESULT APIENTRY hkSetPixelShader(IDirect3DDevice9* pDevice, IDirect3DPixelShade
 
 LRESULT CALLBACK LLMOUSEHOOK(int nCode, WPARAM wParam, LPARAM lParam)
 {
-    MSLLHOOKSTRUCT* s = reinterpret_cast<MSLLHOOKSTRUCT*>(lParam);
-
-    switch (wParam)
+    if (BlockMouseToGame)
     {
-
+        MSLLHOOKSTRUCT* MouseInfo = reinterpret_cast<MSLLHOOKSTRUCT*>(lParam);
+        switch (wParam)
+        {
+        case WM_MOUSEWHEEL:
+            ImGui::GetIO().MouseWheel += (float)GET_WHEEL_DELTA_WPARAM(MouseInfo->mouseData) / (float)WHEEL_DELTA;
+        }
+        return CallNextHookEx(NULL, nCode, wParam, lParam);
     }
-    return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
 
 DWORD WINAPI InitHook(LPVOID lpParameter) 
@@ -339,12 +342,15 @@ DWORD WINAPI InitHook(LPVOID lpParameter)
     DetourAttach(&(LPVOID&)oSetPixelShader, (PBYTE)hkSetPixelShader);
     DetourTransactionCommit();
 
-    SetWindowsHookEx(WH_MOUSE_LL, &LLMOUSEHOOK, 0, 0);
-    MSG message;
-    while (GetMessage(&message, NULL, NULL, NULL) > 0)
+    if (BlockMouseToGame) 
     {
-        TranslateMessage(&message);
-        DispatchMessage(&message);
+        SetWindowsHookEx(WH_MOUSE_LL, &LLMOUSEHOOK, 0, 0);
+        MSG message;
+        while (GetMessage(&message, NULL, NULL, NULL) > 0)
+        {
+            TranslateMessage(&message);
+            DispatchMessage(&message);
+        }
     }
     
     pDevice->Release();
