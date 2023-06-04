@@ -42,8 +42,7 @@ void ShadowResolutionAC2()
     }
     else if (ShadowResItemOptions == 5) // Custom
     {
-        ImGui::SliderInt("Custom Shadow Resolution", &ShadowResValueAC2, 1, 4096);
-        ShadowResValueAC2 = std::clamp(ShadowResValueAC2, 1, 4096);
+        ImGui::SliderInt("Custom Shadow Resolution", &ShadowResValueAC2, 1, 4096, NULL, ImGuiSliderFlags_AlwaysClamp);
         WRITE_MEMORY(0x021D0278, int, ShadowResValueAC2); // Shadow Res 1
         WRITE_MEMORY(0x02243CF0, int, ShadowResValueAC2); // Shadow Res 2
         WRITE_MEMORY(0x022441D0, int, ShadowResValueAC2); // Shadow Res 3

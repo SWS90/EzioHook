@@ -76,17 +76,13 @@ void PlayerScaleAC2()
 		if (ImGui::IsItemHovered()) { ImGui::SetTooltip("Having a different scale other than the default of 1 when entering certain events (for example crowd blending)\nWill automatically resize the player to default.\nHowever leaving the event will resize the player to the previous set scale.\nAttemping to scale the player down after this will result in a incorrect looking/acting player.\nYou must return to the title screen and reload your save to fix this!");}
 		if (ShowSeparatePlayerScaleSlidersAC2)
 		{
-			ImGui::SliderFloat("Player Scale X/Y", (float*)PlayerScaleXYResult, 0.1f, 10.0f);
-			ImGui::SliderFloat("Player Scale Z", (float*)PlayerScaleZResult, 0.1f, 10.0f);
-			*((float*)PlayerScaleXYResult) = std::clamp(*(float*)PlayerScaleXYResult, 0.1f, 10.0f);
-			*((float*)PlayerScaleZResult) = std::clamp(*(float*)PlayerScaleZResult, 0.1f, 10.0f);
+			ImGui::SliderFloat("Player Scale X/Y", (float*)PlayerScaleXYResult, 0.1f, 10.0f, NULL, ImGuiSliderFlags_AlwaysClamp);
+			ImGui::SliderFloat("Player Scale Z", (float*)PlayerScaleZResult, 0.1f, 10.0f, NULL, ImGuiSliderFlags_AlwaysClamp);
 		}
 		if (!ShowSeparatePlayerScaleSlidersAC2)
 		{
-			ImGui::SliderFloat("Player Scale", (float*)PlayerScaleXYResult, 0.1f, 10.0f);
+			ImGui::SliderFloat("Player Scale", (float*)PlayerScaleXYResult, 0.1f, 10.0f, NULL, ImGuiSliderFlags_AlwaysClamp);
 			*(float*)PlayerScaleZResult = *((float*)PlayerScaleXYResult);
-			*((float*)PlayerScaleXYResult) = std::clamp(*(float*)PlayerScaleXYResult, 0.1f, 10.0f);
-			*((float*)PlayerScaleZResult) = std::clamp(*(float*)PlayerScaleZResult, 0.1f, 10.0f);
 		}
 		if (ImGui::Button("Restore default Player Scale"))
 		{

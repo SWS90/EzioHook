@@ -34,14 +34,9 @@ void EzioHookConfig()
 	ImGui::GetStyle().WindowRounding = EHCornerRounding - 2.0f;
 	ImGui::GetStyle().FrameRounding = EHCornerRounding; 
 	ImGui::GetStyle().GrabRounding = EHCornerRounding; 
-	ImGui::SliderFloat("Window Transparency ", &EHWindowAlpha, 0.0f, 1.0f);
-	ImGui::SliderFloat("Corner Rounding", &EHCornerRounding, 0.0f, 12.0f);
-	ImGui::SliderFloat("Scroll Amount", &EHScrollAmount, 0.1f, 1.0f);
-
-	EHWindowAlpha = std::clamp(EHWindowAlpha, 0.0f, 1.0f);
-	ImGui::GetStyle().WindowRounding = std::clamp(ImGui::GetStyle().WindowRounding, 0.0f, 12.0f);
-	EHCornerRounding = std::clamp(EHCornerRounding, 0.0f, 12.0f);
-	EHScrollAmount = std::clamp(EHScrollAmount, 0.1f, 1.0f);
+	ImGui::SliderFloat("Window Transparency ", &EHWindowAlpha, 0.0f, 1.0f, NULL, ImGuiSliderFlags_AlwaysClamp);
+	ImGui::SliderFloat("Corner Rounding", &EHCornerRounding, 0.0f, 12.0f, NULL, ImGuiSliderFlags_AlwaysClamp);
+	ImGui::SliderFloat("Scroll Amount", &EHScrollAmount, 0.1f, 1.0f, NULL, ImGuiSliderFlags_AlwaysClamp);
 
 	if (ImGui::Button("Restore Defaults"))
 	{
