@@ -1,6 +1,6 @@
 #pragma once
-void EzioHookConfig();
-void EzioHookCredits(bool* ShowEHCredits = NULL);
+void EHConfig();
+void EHCredits(bool* ShowEHCredits = NULL);
 void EHPlayerInventoryAdjustAmountWindow();
 extern float EHWindowAlpha;
 extern int EHPlayerMoneyAdjustAmount;

@@ -15,9 +15,9 @@
 bool GameIsAC2 = false;
 bool GameIsACB = false;
 bool GameIsACR = false;
-bool ShowEzioHookAC2Menu = false;
-bool ShowEzioHookACBMenu = false;
-bool ShowEzioHookACRMenu = false;
+bool ShowEHAC2Menu = false;
+bool ShowEHACBMenu = false;
+bool ShowEHACRMenu = false;
 bool InitImGui = false;
 
 void CheckGame()
@@ -27,21 +27,21 @@ void CheckGame()
     if (strstr(ExeName, "AssassinsCreedIIGame"))
     {
         GameIsAC2 = true;
-        ShowEzioHookAC2Menu = true;
+        ShowEHAC2Menu = true;
     }
     else if (strstr(ExeName, "ACBSP"))
     {
         MessageBoxA(0, "It seems you're trying to use EzioHook on Assassins Creed Brotherhood.\nAt this time EzioHook does not support Brotherhood, but it will in the future.\nPlease remove dinput8.dll from next to ACBSP.exe to launch the game.", "EzioHookBrotherhoodMessage", 0); 
         ExitProcess(0);
         //GameIsACB = true;
-        //ShowEzioHookACBMenu = true;
+        //ShowEHACBMenu = true;
     }
     else if (strstr(ExeName, "ACRSP"))
     {
         MessageBoxA(0, "It seems you're trying to use EzioHook on Assassins Creed Revelations.\nAt this time EzioHook does not support Revelations, but it will in the future.\nPlease remove dinput8.dll from next to ACRSP.exe to launch the game.", "EzioHookRevelationsMessage", 0);
         ExitProcess(0); 
         //GameIsACR = true;
-        //ShowEzioHookACRMenu = true;
+        //ShowEHACRMenu = true;
     }
     else
     {
@@ -108,23 +108,23 @@ HRESULT APIENTRY hkEndScene(IDirect3DDevice9* pDevice)
     {
         if (GetAsyncKeyState(VK_INSERT) & 1)
         {
-            ShowEzioHookAC2Menu = !ShowEzioHookAC2Menu;
+            ShowEHAC2Menu = !ShowEHAC2Menu;
             BlockMouseToGame = !BlockMouseToGame;
             if (FreezeTimeOfDayAC2 == true) { FreezeTimeOfDayAC2 = false; }
             if (ShowEHCreditsWindow) { ShowEHCreditsWindow = false; }
         }
-        ImGui::GetIO().MouseDrawCursor = ShowEzioHookAC2Menu;
-        ImGui::GetIO().WantCaptureMouse = ShowEzioHookAC2Menu; 
+        ImGui::GetIO().MouseDrawCursor = ShowEHAC2Menu;
+        ImGui::GetIO().WantCaptureMouse = ShowEHAC2Menu; 
         
-        if (ShowEzioHookAC2Menu == true)
+        if (ShowEHAC2Menu == true)
         {
             InputHandler();
-            EzioHookAC2Menu();
+            EHAC2Menu();
         }
         
         if (ShowPlayerInfoWindowAC2)
         {
-            EzioHookAC2PlayerInfoWindow();
+            EHAC2PlayerInfoWindow();
         }
     }
 
@@ -132,16 +132,16 @@ HRESULT APIENTRY hkEndScene(IDirect3DDevice9* pDevice)
     {
         if (GetAsyncKeyState(VK_INSERT) & 1)
         {
-            ShowEzioHookACBMenu = !ShowEzioHookACBMenu;
+            ShowEHACBMenu = !ShowEHACBMenu;
             BlockMouseToGame = !BlockMouseToGame;
         }
-        ImGui::GetIO().MouseDrawCursor = ShowEzioHookACBMenu;
-        ImGui::GetIO().WantCaptureMouse = ShowEzioHookACBMenu;
+        ImGui::GetIO().MouseDrawCursor = ShowEHACBMenu;
+        ImGui::GetIO().WantCaptureMouse = ShowEHACBMenu;
 
-        if (ShowEzioHookACBMenu == true)
+        if (ShowEHACBMenu == true)
         {
             InputHandler();
-            EzioHookACBMenu();
+            EHACBMenu();
         }
     }
     
@@ -149,16 +149,16 @@ HRESULT APIENTRY hkEndScene(IDirect3DDevice9* pDevice)
     {
         if (GetAsyncKeyState(VK_INSERT) & 1)
         {
-            ShowEzioHookACRMenu = !ShowEzioHookACRMenu;
+            ShowEHACRMenu = !ShowEHACRMenu;
             BlockMouseToGame = !BlockMouseToGame;
         }
-        ImGui::GetIO().MouseDrawCursor = ShowEzioHookACBMenu;
-        ImGui::GetIO().WantCaptureMouse = ShowEzioHookACBMenu;
+        ImGui::GetIO().MouseDrawCursor = ShowEHACBMenu;
+        ImGui::GetIO().WantCaptureMouse = ShowEHACBMenu;
 
-        if (ShowEzioHookACRMenu == true)
+        if (ShowEHACRMenu == true)
         {
             InputHandler();
-            EzioHookACRMenu();
+            EHACRMenu();
         }
     }
     ImGui::EndFrame();

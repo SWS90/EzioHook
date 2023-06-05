@@ -33,7 +33,7 @@ struct ImGuiURL
         }
     }
 };
-void EzioHookCredits(bool* ShowEHCredits)
+void EHCredits(bool* ShowEHCredits)
 {
     ImGui::Text("EzioHook was made by SWS90, with additional help from Sajid");
     static std::array<ImGuiURL, 1> links1

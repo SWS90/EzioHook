@@ -11,7 +11,7 @@ float EHScrollAmount = 0.25f;
 int EHPlayerMoneyAdjustAmount = 1;
 int EHPlayerMoneyAdjustAmountFast = 10;
 bool ShowEHCreditsWindow;
-void EzioHookAC2PlayerInfoWindow()
+void EHAC2PlayerInfoWindow()
 {
 	ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
 	ImGui::Begin("PlayerInfoAC2", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysAutoResize);
@@ -26,7 +26,7 @@ void EHPlayerInventoryAdjustAmountWindow()
 	EHPlayerMoneyAdjustAmount = std::clamp(EHPlayerMoneyAdjustAmount, 1, 2000000000);
 	EHPlayerMoneyAdjustAmountFast = std::clamp(EHPlayerMoneyAdjustAmountFast, 10, 2000000000);
 }
-void EzioHookConfig()
+void EHConfig()
 {
 	ImGui::GetStyle().WindowRounding = EHCornerRounding - 2.0f;
 	ImGui::GetStyle().FrameRounding = EHCornerRounding; 

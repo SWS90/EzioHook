@@ -7,7 +7,7 @@
 #include <EzioHookPlayerInfo.h>
 #include <EzioHookOtherWindows.h>
 
-void EzioHookAC2Menu()
+void EHAC2Menu()
 {
     ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
     ImGui::SetNextWindowSize(ImVec2(635, 560), ImGuiCond_FirstUseEver);
@@ -17,7 +17,7 @@ void EzioHookAC2Menu()
         { 
             ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
             ImGui::Begin("EzioHookCredits", &ShowEHCreditsWindow, ImGuiWindowFlags_AlwaysAutoResize);
-            EzioHookCredits(&ShowEHCreditsWindow);
+            EHCredits(&ShowEHCreditsWindow);
         }
         
         if (ImGui::BeginMenuBar())
@@ -26,7 +26,7 @@ void EzioHookAC2Menu()
             {
                 if (ImGui::BeginMenu("Config"))
                 {
-                    EzioHookConfig();
+                    EHConfig();
                     ImGui::EndMenu();
                 }
                 ImGui::Separator();

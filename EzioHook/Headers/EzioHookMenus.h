@@ -1,8 +1,8 @@
 #pragma once
-void EzioHookAC2Menu();
-void EzioHookACBMenu();
-void EzioHookACRMenu();
-void EzioHookAC2PlayerInfoWindow();
+void EHAC2Menu();
+void EHACBMenu();
+void EHACRMenu();
+void EHAC2PlayerInfoWindow();
 void HQLODSAC2();
 void TimeOfdayAC2();
 void ShadowResolutionAC2();
