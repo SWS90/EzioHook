@@ -73,6 +73,16 @@ void EzioHookAC2Menu()
         ImGui::TreePush("InventoryTree");
         InventoryAC2();
         ImGui::TreePop();
+
+        if (ImGui::BeginMenuBar())
+        {
+            if (ImGui::BeginMenu("Inventory Adjustment Amount"))
+            {
+                EHPlayerInventoryAdjustAmountWindow();
+                ImGui::EndMenu();
+            }
+        }
+        ImGui::EndMenuBar();
     }
     ImGui::End();
 }

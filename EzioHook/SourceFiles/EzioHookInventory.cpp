@@ -24,13 +24,7 @@ void InventoryAC2()
     size_t PlayerMedicineResult = GetPointer(PlayerInventoryBaseAddr, PlayerMedicineOffsets, _countof(PlayerMedicineOffsets));
     size_t PlayerSmokeBombsResult = GetPointer(PlayerInventoryBaseAddr, PlayerSmokeBombsOffsets, _countof(PlayerSmokeBombsOffsets));
     size_t PlayerThrowingKnivesResult = GetPointer(PlayerInventoryBaseAddr, PlayerThrowingKnivesOffsets, _countof(PlayerThrowingKnivesOffsets));
-
-    ImGui::Checkbox("Show Adjustment Amount Config", &ShowPlayerInventoryAdjustAmountWindowAC2);
-    if (ShowPlayerInventoryAdjustAmountWindowAC2)
-    {
-        EzioHookAC2PlayerInventoryAdjustAmountWindow();
-    }
-
+    
     if (PlayerMoneyResult == 0)
     {
         ImGui::BeginDisabled(true);

@@ -19,15 +19,12 @@ void EzioHookAC2PlayerInfoWindow()
 	PlayerSpeedAC2();
 	ImGui::End();
 }
-void EzioHookAC2PlayerInventoryAdjustAmountWindow()
+void EHPlayerInventoryAdjustAmountWindow()
 {
-	ImGui::SetNextWindowBgAlpha(EHWindowAlpha);
-	ImGui::Begin("PlayerInventoryAdjustAmount", NULL, ImGuiWindowFlags_AlwaysAutoResize);
 	ImGui::InputInt("Money Adjustment Amount (Slow)", &EHPlayerMoneyAdjustAmount, 1, 10);
 	ImGui::InputInt("Money Adjustment Amount (Fast)", &EHPlayerMoneyAdjustAmountFast, 1, 10);
 	EHPlayerMoneyAdjustAmount = std::clamp(EHPlayerMoneyAdjustAmount, 1, 2000000000);
 	EHPlayerMoneyAdjustAmountFast = std::clamp(EHPlayerMoneyAdjustAmountFast, 10, 2000000000);
-	ImGui::End();
 }
 void EzioHookConfig()
 {
