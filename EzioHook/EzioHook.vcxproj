@@ -23,6 +23,7 @@
     <ClInclude Include="Headers\EzioHookOtherWindows.h" />
     <ClInclude Include="Headers\EzioHookPlayerInfo.h" />
     <ClInclude Include="Headers\EzioHookMenus.h" />
+    <ClInclude Include="Headers\EzioHookToolTips.h" />
     <ClInclude Include="Headers\GetPointer.h" />
     <ClInclude Include="Headers\Hook.h" />
     <ClInclude Include="Headers\LicenseStrings.hpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="SourceFiles\EzioHookInventory.cpp" />
     <ClCompile Include="SourceFiles\EzioHookShadowResolution.cpp" />
     <ClCompile Include="SourceFiles\EzioHookTimeOfDay.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookToolTips.cpp" />
     <ClCompile Include="SourceFiles\MinHookHooks.cpp" />
     <ClCompile Include="SourceFiles\SharedDataTypes.cpp" />
     <ClCompile Include="SourceFiles\Source.cpp" />

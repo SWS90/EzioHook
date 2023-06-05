@@ -4,12 +4,13 @@
 #include <windows.h>
 #include <MemoryHelpers.h>
 #include <stdint.h>
+#include <EzioHookToolTips.h>
 void HQLODSAC2()
 {
     ImGui::Checkbox("Force HQ LODs", &ForceHQLODS);
     ImGui::SameLine();
     ImGui::Text("(?)");
-    if (ImGui::IsItemHovered()) { ImGui::SetTooltip("Based on Bucket5's 'Assassin's Creed 2 Visual Fixup Mod'<https://www.moddb.com/mods/assassins-creed-2-visual-fixup-mod>\nThis will force all buildings to use the highest level-of-detail models available."); }
+    if (ImGui::IsItemHovered()) { EHToolTip_HQLODSAC2(); }
 
     if (ForceHQLODS && !ForceHQLODSActive)
     {

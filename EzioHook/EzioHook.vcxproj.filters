@@ -355,6 +355,7 @@
     <ClInclude Include="Headers\GetPointer.h" />
     <ClInclude Include="Headers\EzioHookPlayerInfo.h" />
     <ClInclude Include="Headers\EzioHookOtherWindows.h" />
+    <ClInclude Include="Headers\EzioHookToolTips.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceFiles\Console.cpp">
@@ -421,6 +422,7 @@
     <ClCompile Include="SourceFiles\EzioHookHQLODSAC2.cpp" />
     <ClCompile Include="SourceFiles\EzioHookCamera.cpp" />
     <ClCompile Include="SourceFiles\EzioHookInventory.cpp" />
+    <ClCompile Include="SourceFiles\EzioHookToolTips.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\minhook\.editorconfig">
